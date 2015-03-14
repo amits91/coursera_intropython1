@@ -1,3 +1,5 @@
 
 series: http://www.codeskulptor.org/#user39_fADR5pum9X_1.py
-
+format tester: http://www.codeskulptor.org/#user39_kIkzwZjQ5e_0.py
+mini project3 - stopwatch: http://www.codeskulptor.org/#user39_8zF4TRSzdB_0.py
+http://www.codeskulptor.org/#user39_baPeQomhu427rpe.py
