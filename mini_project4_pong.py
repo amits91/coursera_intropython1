@@ -50,7 +50,6 @@ def new_game():
     global last_spawn
     score1 = 0
     score2 = 0
-    is_left = random.randrange(0, 2)
     spawn_ball(not(last_spawn))
 def button_handler():
     new_game()
@@ -73,7 +72,9 @@ def draw(canvas):
     elif ball_pos[1] >= HEIGHT - 1 - BALL_RADIUS:
         ball_vel[1] = -ball_vel[1]
     if ball_pos[0] <= PAD_WIDTH + BALL_RADIUS:
-        if paddle1_pos <= ball_pos[1] <= paddle1_pos + PAD_HEIGHT:
+        paddle1_top = paddle1_pos - BALL_RADIUS
+        paddle1_bot = paddle1_pos + PAD_HEIGHT + BALL_RADIUS
+        if paddle1_top <= ball_pos[1] <= paddle1_bot:
             ball_vel[0] *= BALL_ACCEL
             ball_vel[1] *= BALL_ACCEL
             ball_vel[0] = -ball_vel[0]
@@ -81,7 +82,9 @@ def draw(canvas):
             score2 += 1
             spawn_ball(RIGHT)
     elif ball_pos[0] >= WIDTH - 1 - PAD_WIDTH - BALL_RADIUS:
-        if paddle2_pos <= ball_pos[1] <= paddle2_pos + PAD_HEIGHT:
+        paddle2_top = paddle2_pos - BALL_RADIUS
+        paddle2_bot = paddle2_pos + PAD_HEIGHT + BALL_RADIUS
+        if paddle2_top <= ball_pos[1] <= paddle2_bot:
             ball_vel[0] *= BALL_ACCEL
             ball_vel[1] *= BALL_ACCEL
             ball_vel[0] = -ball_vel[0]
